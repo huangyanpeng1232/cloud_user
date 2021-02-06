@@ -1,0 +1,50 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9000/eureka,http://localhost:9001/eureka,http://localhost:9002/eureka,http://localhost:9003/eureka
+  instance:
+    hostname: localhost
+    lease-expiration-duration-in-seconds: 10
+    lease-renewal-interval-in-seconds: 5
+server:
+  port: 9200
+spring:
+  application:
+    name: user
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Abc246811..
+    url: jdbc:mysql://47.94.251.61:3012/cloud_user?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    username: root
+  rabbitmq:
+    host: 47.94.251.61
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
+  redis:
+    database: 0
+    host: 47.94.251.61
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    password: ''
+    port: 6379
+    timeout: 6000ms
+
+management:
+  endpoint:
+    configprops:
+      enabled: true
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+info:
+  app:
+    name: user-server
